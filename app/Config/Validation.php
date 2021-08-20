@@ -70,7 +70,7 @@ class Validation
 		'uid' 				=> ['rules' => 'required'],
 		'email' 			=> ['rules' => 'required|valid_email'],
 		'password' 			=> ['rules' => 'required|min_length[6]'],
-		'username' 			=> ['rules' => 'required'],
+		// 'username' 			=> ['rules' => 'required'],
 	];
 
 	public $createTodo = [

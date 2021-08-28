@@ -49,7 +49,7 @@ Request :
 
 ```json
 {
-  "email": "string, unique",
+  "emailOrUsername": "string, unique",
   "password": "string, hash"
 }
 ```

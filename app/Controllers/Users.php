@@ -43,7 +43,7 @@ class Users extends ResourceController
 		$errors = $this->validation->getErrors();
 		if ($errors) return $this->respond(['errorValidation' => $errors], 400);
 
-		$user = $this->model->getUserAuth($data['email'], $data['password']);
+		$user = $this->model->getUserAuth($data['emailOrUsername'], $data['password']);
 
 		return $user != null ?
 			$this->respond(['message' => 'Login successfully.', 'user' => $user])

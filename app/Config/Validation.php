@@ -49,7 +49,12 @@ class Validation
 	];
 
 	public $signIn = [
-		'email' 			=> ['rules' => 'required|valid_email'],
+		'emailOrUsername' 	=> [
+			'rules' 		=> 'required',
+			'errors'		=> [
+				'required'	=> 'The email or username field is required.'
+			]
+		],
 		'password' 			=> ['rules' => 'required|min_length[6]'],
 	];
 

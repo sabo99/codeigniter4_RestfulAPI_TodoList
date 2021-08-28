@@ -28,12 +28,15 @@ class UsersModel extends Model
 		return $builder->get()->getRowObject();
 	}
 
-	function getUserAuth(string $email, string $password)
+	function getUserAuth(string $emailOrUsername, string $password)
 	{
 		$builder = $this->DB->table('users');
 
 		$builder->select('uid, email, username, avatar, two_factor_auth, created_at, updated_at');
-		$builder->where('email', $email)->where('password', $this->helpers->getResultEncrypted($password));
+		$builder->where('email', $emailOrUsername);
+		$builder->orWhere('username', $emailOrUsername);
+		$builder->where('password', $this->helpers->getResultEncrypted($password));
+
 		return $builder->get()->getRowObject();
 	}
 
